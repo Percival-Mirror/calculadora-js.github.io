@@ -1,0 +1,124 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: none;
+	text-decoration: none;
+}
+
+body{
+	background: linear-gradient(135deg, #000000, #242424, #3C3C3C, #7A7A7A);
+}
+
+.container{
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.calculadora{
+	width: 300px;
+	height: 450px;
+	background: #181818;
+	border-radius: 40px;
+	padding: 20px;
+	position: relative;
+}
+
+.calculadora::before , .calculadora::after{
+	content: '';
+	top: -5px;
+	left: -5px;
+	position: absolute;
+	width: calc(100% + 10px);
+	height: calc(100% + 10px);
+	border-radius: 40px;
+	background: linear-gradient(225deg, #FF5900, #FF3200, #FF5D00, #FF9300, #FF5900, #FFCD00, #FFB200, #FF5900);
+	background-size: 400%;
+	animation: animate 20s linear infinite;
+	z-index: -1;
+}
+
+.calculadora::after{
+	filter: blur(25px);
+}
+
+.pantalla{
+	width: 100%;
+	height: 100px;
+	margin-bottom: 20px;
+	background-color: black;
+}
+
+.pantalla p{
+	font-size: 2.5em;
+	text-align: right;
+	font-family: 'Genos';
+}
+
+.container-operacion p{
+	color: white;
+	text-shadow: 0 0 3px #FF5900, 0 0 4px #FF5900, 0 0 5px #FF5900;
+}
+
+.container-resultado {
+	color: #00C029;
+	text-shadow: 0 0 2px #00F835, 0 0 3px #00F835;
+}
+
+.container-operacion , .container-resultado {
+	width: 100%;
+	height: 50%;
+	padding: 5px;
+	box-sizing: border-box;
+}
+
+.botones{
+	width: 100%;
+	height: calc(100% - 120px);
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-auto-rows: auto;
+	gap: 15px;
+}
+
+.boton{
+	font-family: 'Genos', sans-serif;
+	font-size: 1.5em;
+	font-weight: 500;
+	color: #FF5900;
+	background-color: #322F2F;
+	border: none;
+	box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.boton:active {
+	box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 1);
+	transform: translateY(4px);
+}
+
+#clear{
+	grid-column: 1/3;
+	background-color: #CFCFCF;
+}
+
+#equal{
+	grid-column: 3/5;
+	background-color: #FF5900;
+	color: #000;
+}
+
+@keyframes animate{
+	0%{
+		background-position: 0 0;
+	}
+
+	50%{
+		background-position: 400% 0;
+	}
+
+	100%{
+		background-position: 0 0;
+	}
+}
